@@ -8,9 +8,9 @@ import { useEffect, useRef } from "react";
 
 export const projects = [
   {
-    title: "Wawatmos",
+    title: "ecom",
     url: "https://r3f-wawatmos-final.vercel.app/",
-    image: "projects/wawatmos.jpg",
+    image: "projects/train.png",
     description: "Recreating the Atmos Awwwards website with React Three Fiber",
   },
   {
@@ -21,14 +21,14 @@ export const projects = [
   },
   {
     title: "3D Avatar",
-    url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
+    url: "",
     image: "projects/avatar.jpg",
     description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
   },
   {
     title: "Kanagame",
-    url: "https://www.youtube.com/watch?v=zwNF1-lsia8",
-    image: "projects/kanagame.jpg",
+    url: "",
+    image: "projects/help.jpg",
     description: "Use React Three Fiber to create a 3D game",
   },
   {
