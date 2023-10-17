@@ -1,4 +1,5 @@
 import {FaLinkedin,FaGithub,FaReddit} from "react-icons/fa";
+import {SiLeetcode} from "react-icons/si";
 export const Menu = (props) => {
   const { onSectionChange, menuOpened, setMenuOpened } = props;
 
@@ -6,7 +7,7 @@ export const Menu = (props) => {
     <>
       <button
         onClick={() => setMenuOpened(!menuOpened)}
-        className="z-20 fixed top-4 right-4 md:top-12 md:right-12 p-3 bg-indigo-600 w-10 h-10 rounded-md"
+        className="z-20 fixed top-4 right-4 md:top-12 md:right-12 p-3 bg-indigo-600 w-12 h-12 rounded-md"
       >
         <div
           className={`bg-white h-0.5 rounded-md w-full transition-all ${
@@ -41,27 +42,27 @@ export const Menu = (props) => {
           {/* Add your social links here */}
           <a
             href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
-            className="text-blue-600 hover:text-blue-300 rounded-full transition mb-12 duration-300 ease-in-out"
+            className=" text-blue-600 hover:text-blue-300 rounded-full transition mb-12 duration-300 ease-in-out"
           >
-            <FaLinkedin/>
+            <FaLinkedin className="w-10 h-10"/>
           </a>
           <a
             href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
-            className="text-black-600 hover:text-gray-300  transition mb-12 duration-300 ease-in-out"
+            className=" text-black-600 hover:text-gray-300  transition mb-12 duration-300 ease-in-out"
           >
-            <FaGithub/>
+            <FaGithub className="w-10 h-10"/>
           </a>
           <a
             href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
-            className="text-red-600 hover:text-red-300 transition mb-12 duration-300 ease-in-out"
+            className=" text-red-600 hover:text-red-300 transition mb-12 duration-300 ease-in-out"
           >
-            <FaReddit/>
+            <FaReddit className="w-10 h-10"/>
           </a>
           <a
             href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
-            className="text-blue-600 hover:text-blue-300 rounded-full transition mb-12 duration-300 ease-in-out"
+            className=" text-black-300 hover:text-black-200 rounded-full transition mb-12 duration-300 ease-in-out"
           >
-            <FaLinkedin/>
+            <SiLeetcode className="w-10 h-10"/>
           </a>
         </div>
 

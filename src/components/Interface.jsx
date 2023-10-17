@@ -2,14 +2,14 @@ import { ValidationError, useForm } from "@formspree/react";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
-
+import { Typewriter } from 'react-simple-typewriter'
+import {FaCloudDownloadAlt} from "react-icons/fa";
 
 const Section = (props) => {
   const { children, mobileTop } = props;
-
   return (
     <motion.section
-      className={`
+       className={`
   h-screen w-screen p-4 max-w-screen-1xl mx-1
   flex flex-col items-start
   ${mobileTop ? "justify-start md:justify-center" : "justify-center"}
@@ -49,15 +49,31 @@ export const Interface = (props) => {
 
 const AboutSection = (props) => {
   const { setSection } = props;
+  const pdfURL ="http://localhost:5173/resume.pdf";
+
+  const downloadResume=(url)=>{
+    
+    const filename = url.split('/').pop();
+    console.log(filename);
+    const aTag = document.createElement('a');
+    console.log(aTag);
+    aTag.href = url;
+    console.log(aTag.href)
+    aTag.setAttribute("download",filename);
+    document.body.appendChild(aTag);
+    aTag.click();
+    aTag.remove();
+   }
+
   return (
     <Section mobileTop>
-      <h1 className="text-3xl md:text-4xl font-extrabold leading-snug mt-6 md:mt-0">
+      <h1 className="text-3xl md:text-6xl font-extrabold leading-snug mt-2 md:mt-0">
         Hey, I'm
         <br />
-        <span className="  italic text-red-600">Saurabh Singh</span>
+        <span className="  italic text-black-600">Saurabh Singh</span>
       </h1>
       <motion.p
-        className="text-lg text-gray-600 mt-3"
+        className="text-lg text-gray-600 mt-6"
         initial={{
           opacity: 0,
           y: 25,
@@ -71,14 +87,29 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-        I'm mern stack developer
+        <h1 className="text-base md:text-2xl font-extrabold leading-snug ">
+         I'm a{' '}
+          <span className="text-base md:text-2xl font-extrabold text-green-600 mt-2 md:mt-0">
+         
+          <Typewriter
+            words={['Coder' ,'Frontend Developer', 'Backend Developer', 'MERN Stack Developer']}
+            loop={Infinity}
+            cursor
+            cursorStyle='|'
+            cursorColor="red"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+       </h1> 
+       
         <br />
       
       </motion.p>
       <motion.button
-        onClick={() => setSection(3)}
-        className={`bg-indigo-600 text-white py-2 px-6 
-      rounded-lg font-bold text-lg mt-3 md:mt-12`}
+        className={`bg-indigo-600 text-white py-4 px-14 
+      rounded-lg font-bold text-lg mt-7 md:mt-12`}
         initial={{
           opacity: 0,
           y: 25,
@@ -92,7 +123,12 @@ const AboutSection = (props) => {
           delay: 1,
         }}
       >
-        Contact me
+        <div className="flex justify-center gap-4" >
+        <FaCloudDownloadAlt className="m-auto"/>
+       <button  onClick={()=>{downloadResume(pdfURL)}}>
+          Resume  
+        </button>
+        </div>
       </motion.button>
     </Section>
   );
@@ -126,6 +162,10 @@ const skills = [
   {
     title:"javascript",
     level :60,
+  },
+  {
+    title:"HTML CSS",
+    level :80,
   },
 ];
 
@@ -198,8 +238,9 @@ const ProjectsSection = () => {
   };
 
   return (
+
     <Section>
-      <div className="flex w-full h-full gap-8 items-center justify-center">
+       <div className="flex w-full h-full mt-auto gap-8 items-center justify-center">
         <button
           className="hover:text-indigo-600 transition-colors"
           onClick={previousProject}
@@ -213,73 +254,57 @@ const ProjectsSection = () => {
         >
           Next →
         </button>
-      </div>
+      </div> 
     </Section>
   );
 };
 
+
 const ContactSection = () => {
-  const [state, handleSubmit] = useForm("mayzgjbd");
+  const [state, handleSubmit] = useForm("mbjvqqjz");
   return (
     <Section>
-      <h2 className="text-3xl md:text-5xl font-bold">Contact me</h2>
-      <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-80 max-w-full">
-        {state.succeeded ? (
-          <p className="text-gray-900 text-center">Thanks for your message !!!</p>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <label for="name" className="font-medium text-gray-900 block mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-            />
-            <label
-              for="email"
-              className="font-medium text-gray-900 block mb-1 mt-8"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-            />
-            <ValidationError
-              className="mt-1 text-red-500"
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
-            <label
-              for="email"
-              className="font-medium text-gray-900 block mb-1 mt-8"
-            >
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-            />
-            <ValidationError
-              className="mt-1 text-red-500"
-              errors={state.errors}
-            />
-            <button
-              disabled={state.submitting}
-              className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 "
-            >
-              Submit
-            </button>
-          </form>
-        )}
-      </div>
-    </Section>
+    <h2 className="text-5xl font-bold">Contact me</h2>
+    <div className="mt-24 p-8 rounded-md bg-white w-96 max-w-full">
+      <form>
+        <label for="name" className="font-medium text-gray-900 block mb-1">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+        />
+        <label
+          for="email"
+          className="font-medium text-gray-900 block mb-1 mt-8"
+        >
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+        />
+        <label
+          for="email"
+          className="font-medium text-gray-900 block mb-1 mt-8"
+        >
+          Message
+        </label>
+        <textarea
+          name="message"
+          id="message"
+          className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+        />
+        <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 ">
+          Submit
+        </button>
+      </form>
+    </div>
+  </Section>
   );
 };
 

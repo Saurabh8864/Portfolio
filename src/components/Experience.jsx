@@ -69,14 +69,7 @@ export const Experience = (props) => {
         characterGroup.current.position
       );
     }
-    // console.log([position.x, position.y, position.z]);
 
-    // const quaternion = new THREE.Quaternion();
-    // characterContainerAboutRef.current.getWorldQuaternion(quaternion);
-    // const euler = new THREE.Euler();
-    // euler.setFromQuaternion(quaternion, "XYZ");
-
-    // console.log([euler.x, euler.y, euler.z]);
   });
 
   return (
@@ -177,7 +170,7 @@ export const Experience = (props) => {
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
         <Float>
-          <mesh position={[1, -3, -15]} scale={[2, 2, 2]}>
+          <mesh position={[-3,0.9,-3.8]} scale={[0.9, 0.9, 0.9]}>
             <sphereGeometry />
             <MeshDistortMaterial
               opacity={0.8}
@@ -189,7 +182,7 @@ export const Experience = (props) => {
           </mesh>
         </Float>
         <Float>
-          <mesh scale={[3, 3, 3]} position={[3, 1, -18]}>
+          <mesh scale={[1.5, 1.5, 1.5]} position={[-2, -2, -5]}>
             <sphereGeometry />
             <MeshDistortMaterial
               opacity={0.8}
@@ -201,7 +194,7 @@ export const Experience = (props) => {
           </mesh>
         </Float>
         <Float>
-          <mesh scale={[1.4, 1.4, 1.4]} position={[-3, -1, -11]}>
+          <mesh scale={[1.4, 1.4, 1.4]} position={[-3, 1.7, -6]}>
             <boxGeometry />
             <MeshWobbleMaterial
               opacity={0.8}

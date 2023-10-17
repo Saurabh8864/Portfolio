@@ -37,6 +37,36 @@ export const projects = [
     image: "projects/loader.jpg",
     description: "Create a loading screen for your r3f projects",
   },
+  {
+    title: "ecom",
+    url: "https://r3f-wawatmos-final.vercel.app/",
+    image: "projects/train.png",
+    description: "Recreating the Atmos Awwwards website with React Three Fiber",
+  },
+  {
+    title: "Portfolio Baking",
+    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
+    image: "projects/baking.jpg",
+    description: "Learn how to bake a 3D model with Blender and use it in r3f",
+  },
+  {
+    title: "3D Avatar",
+    url: "",
+    image: "projects/avatar.jpg",
+    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+  },
+  {
+    title: "Kanagame",
+    url: "",
+    image: "projects/help.jpg",
+    description: "Use React Three Fiber to create a 3D game",
+  },
+  {
+    title: "Loader",
+    url: "",
+    image: "projects/loader.jpg",
+    description: "Create a loading screen for your r3f projects",
+  },
 ];
 
 const Project = (props) => {
@@ -70,7 +100,7 @@ const Project = (props) => {
         position-y={0.3}
       />
       <Text
-        maxWidth={2}
+        maxWidth={6}
         anchorX={"left"}
         anchorY={"top"}
         fontSize={0.2}
@@ -98,15 +128,15 @@ export const Projects = () => {
   const [currentProject] = useAtom(currentProjectAtom);
 
   return (
-    <group position-y={-viewport.height * 2 + 1}>
+    <group position-y={-viewport.height * 2.1 + 1}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}
-          position={[index * 2.5, 0, -3]}
+          position={[index * 3, 0, -3.5]}
           animate={{
-            x: 0 + (index - currentProject) * 2.5,
-            y: currentProject === index ? 0 : -0.1,
-            z: currentProject === index ? -2 : -3,
+            x: 0 + (index - currentProject) * 4,
+            y: currentProject === index ? 0.2 : -0.1,
+            z: currentProject === index ? -3 : -3,
             rotateX: currentProject === index ? 0 : -Math.PI / 3,
             rotateZ: currentProject === index ? 0 : -0.1 * Math.PI,
           }}
