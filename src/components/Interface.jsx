@@ -4,6 +4,8 @@ import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
 import { Typewriter } from 'react-simple-typewriter'
 import {FaCloudDownloadAlt} from "react-icons/fa";
+import {FaLinkedin,FaGithub,FaReddit} from "react-icons/fa";
+import {SiLeetcode} from "react-icons/si";
 
 const Section = (props) => {
   const { children, mobileTop } = props;
@@ -299,9 +301,39 @@ const ContactSection = () => {
           id="message"
           className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
         />
-        <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 ">
+         {/* <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg ml-auto font-bold text-lg mt-16 ">
           Submit
-        </button>
+        </button> */}
+
+      {/* testing */}
+
+      <div className="flex justify-center gap-2">
+      <div className="flex justify-center space-x-4 mt-12">
+          <a
+            href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
+            className=" text-blue-600 hover:text-blue-300 rounded-full transition mb-12 duration-300 ease-in-out">
+            <FaLinkedin className="w-5 h-5"/>
+          </a>
+          <a
+            href="https://github.com/Saurabh8864" target="blank"
+            className=" text-black-600 hover:text-gray-300  transition mb-12 duration-300 ease-in-out"
+          >
+            <FaGithub className="w-5 h-5"/>
+          </a>
+          <a
+            href="https://leetcode.com/user8353g/" target="blank"
+            className=" text-black-300 hover:text-black-200 rounded-full transition mb-12 duration-300 ease-in-out"
+          >
+            <SiLeetcode className="w-5 h-5"/>
+          </a>
+          
+          <div className="flex mb-auto ">
+          <button className="bg-indigo-600 text-white py-2 px-8 rounded-lg  font-bold text-lg ">
+          Submit
+          </button>
+          </div>
+          </div>
+        </div>
       </form>
     </div>
   </Section>

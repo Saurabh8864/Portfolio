@@ -1,4 +1,4 @@
-import {FaLinkedin,FaGithub,FaReddit} from "react-icons/fa";
+import {FaLinkedin,FaGithub} from "react-icons/fa";
 import {SiLeetcode} from "react-icons/si";
 export const Menu = (props) => {
   const { onSectionChange, menuOpened, setMenuOpened } = props;
@@ -59,9 +59,6 @@ export const Menu = (props) => {
             <SiLeetcode className="w-10 h-10"/>
           </a>
         </div>
-
-
-
       </div>
     </>
   );
