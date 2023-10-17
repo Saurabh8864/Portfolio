@@ -47,19 +47,13 @@ export const Menu = (props) => {
             <FaLinkedin className="w-10 h-10"/>
           </a>
           <a
-            href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
+            href="https://github.com/Saurabh8864" target="blank"
             className=" text-black-600 hover:text-gray-300  transition mb-12 duration-300 ease-in-out"
           >
             <FaGithub className="w-10 h-10"/>
           </a>
           <a
-            href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
-            className=" text-red-600 hover:text-red-300 transition mb-12 duration-300 ease-in-out"
-          >
-            <FaReddit className="w-10 h-10"/>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
+            href="https://leetcode.com/user8353g/" target="blank"
             className=" text-black-300 hover:text-black-200 rounded-full transition mb-12 duration-300 ease-in-out"
           >
             <SiLeetcode className="w-10 h-10"/>
