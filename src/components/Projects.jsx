@@ -9,20 +9,22 @@ import { useEffect, useRef } from "react";
 export const projects = [
   {
     title: "ecom",
+    url: "https://github.com/Saurabh8864/shop-area",
     image: "projects/ecom.png",
-    description: "Recreating the Atmos Awwwards website with React Three Fiber",
+    description: "Multivender E-commerce website made on # MERN Stack ",
   },
   {
-    title: "chair",
-   
+    title: "Gostore",
+    //  url: "https://github.com/Saurabh8864/todo-mern",
     image: "projects/chair.png",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
+    description: "it is a Chair configurator made with # React-three-fiber",
   },
   {
     title: "todo list",
-    // url: ,
+    url: "https://github.com/Saurabh8864/todo-mern",
+
     image: "projects/todo.png",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
+    description: "Mark the task to do",
   },
   
 ];
@@ -34,7 +36,7 @@ const Project = (props) => {
   const bgOpacity = useMotionValue(0.4);
 
   useEffect(() => {
-    animate(bgOpacity, highlighted ? 0.7 : 0.4);
+    animate(bgOpacity, highlighted ? 0.6 : 0.4);
   }, [highlighted]);
 
   useFrame(() => {
@@ -48,30 +50,30 @@ const Project = (props) => {
         onClick={() => window.open(project.url, "_blank")}
         ref={background}
       >
-        <planeGeometry args={[4.5, 4.5]} />
+        <planeGeometry args={[3, 3]} />
         <meshBasicMaterial color="black" transparent opacity={0.4} />
       </mesh>
       <Image
-        scale={[4, 2.3, 2.9]}
+        scale={[2.6, 1.7, 1.1]}
         url={project.image}
         toneMapped={false}
         position-y={0.3}
       />
       <Text
-        maxWidth={4}
+        maxWidth={2}
         anchorX={"left"}
         anchorY={"top"}
-        fontSize={0.3}
-        position={[-1, -0.7, 1.5]}
+        fontSize={0.2}
+        position={[-1, -0.7, 0]}
       >
         {project.title.toUpperCase()}
       </Text>
       <Text
-        maxWidth={3}
+        maxWidth={2}
         anchorX="left"
         anchorY="top"
-        fontSize={0.15}
-        position={[-1.5, -0.9, 2]}
+        fontSize={0.1}
+        position={[-1, -1, 0]}
       >
         {project.description}
       </Text>
@@ -86,18 +88,17 @@ export const Projects = () => {
   const [currentProject] = useAtom(currentProjectAtom);
 
   return (
-   
-    <group position-y={-viewport.height * 2.1 + 1}>
+    <group position-y={-viewport.height * 2 + 1}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}
-          position={[index * 3, 0, -3.5]}
+          position={[index * 2.5, 0, -3]}
           animate={{
-            x: -1 + (index - currentProject) * 8,
-            y: currentProject === index ? 0.3 : -0.2,
-            z: currentProject === index ? -3 : -3,
-            rotateX: currentProject === index ? 0 : -Math.PI / 4,
-            rotateZ: currentProject === index ? 0 : 0.1 * Math.PI,
+            x: 0 + (index - currentProject) * 4,
+            y: currentProject === index ? 0 : -0.1,
+            z: currentProject === index ? -2 : -3,
+            rotateX: currentProject === index ? 0 : -Math.PI / 3,
+            rotateZ: currentProject === index ? 0 : -0.1 * Math.PI,
           }}
         >
           <Project project={project} highlighted={index === currentProject} />

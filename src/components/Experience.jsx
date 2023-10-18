@@ -78,7 +78,8 @@ export const Experience = (props) => {
       <Background />
       <motion.group
         ref={characterGroup}
-        rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
+        position={[1.9072935059634513, 0.14400000000000002, 2.681801948466054]}
+      rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
         scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
         animate={"" + section}
         transition={{
@@ -90,27 +91,29 @@ export const Experience = (props) => {
             scaleY: officeScaleRatio,
             scaleZ: officeScaleRatio,
           },
+
+          // check it 
           1: {
-            y: -viewport.height + 0.5,
-            x: isMobile ? 0.3 : 0,
-            z: 7,
+            y: -viewport.height +0.1,
+            x: isMobile ? 0.4 : 0,
+            z: 4.9,
             rotateX: 0,
-            rotateY: isMobile ? -Math.PI / 2 : 0,
+            rotateY: isMobile ? -Math.PI / 28 : 0,
             rotateZ: 0,
-            scaleX: isMobile ? 1.5 : 1,
-            scaleY: isMobile ? 1.5 : 1,
-            scaleZ: isMobile ? 1.5 : 1,
+            scaleX: isMobile ? 1.6 : 1,
+            scaleY: isMobile ? 1.6 : 1,
+            scaleZ: isMobile ? 1.6 : 1,
           },
           2: {
             x: isMobile ? -1.4 : -2,
             y: -viewport.height * 2 + 0.5,
-            z: 0,
+            z: 2.4,
             rotateX: 0,
             rotateY: Math.PI / 2,
             rotateZ: 0,
-            scaleX: 1,
-            scaleY: 1,
-            scaleZ: 1,
+            scaleX: 1.2,
+            scaleY: 1.2,
+            scaleZ: 1.2,
           },
           3: {
             y: -viewport.height * 3 + 1,
@@ -119,13 +122,13 @@ export const Experience = (props) => {
             rotateX: 0,
             rotateY: -Math.PI / 4,
             rotateZ: 0,
-            scaleX: 1,
-            scaleY: 1,
-            scaleZ: 1,
+            scaleX: 1.1,
+            scaleY: 1.1,
+            scaleZ: 1.1,
           },
         }}
       >
-        <Avatar animation={characterAnimation} wireframe={section === 1} />
+        <Avatar animation={characterAnimation}  />
       </motion.group>
       <ambientLight intensity={1} />
       <motion.group
