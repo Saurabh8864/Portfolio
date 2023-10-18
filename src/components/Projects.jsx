@@ -9,13 +9,12 @@ import { useEffect, useRef } from "react";
 export const projects = [
   {
     title: "ecom",
-    // url: "https://r3f-wawatmos-final.vercel.app/",
     image: "projects/ecom.png",
     description: "Recreating the Atmos Awwwards website with React Three Fiber",
   },
   {
     title: "chair",
-    // url: ,
+   
     image: "projects/chair.png",
     description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
@@ -49,11 +48,11 @@ const Project = (props) => {
         onClick={() => window.open(project.url, "_blank")}
         ref={background}
       >
-        <planeGeometry args={[4, 4]} />
+        <planeGeometry args={[4.5, 4.5]} />
         <meshBasicMaterial color="black" transparent opacity={0.4} />
       </mesh>
       <Image
-        scale={[3.8, 2.3, 2.9]}
+        scale={[4, 2.3, 2.9]}
         url={project.image}
         toneMapped={false}
         position-y={0.3}
@@ -63,7 +62,7 @@ const Project = (props) => {
         anchorX={"left"}
         anchorY={"top"}
         fontSize={0.3}
-        position={[-1, -0.5, 1.5]}
+        position={[-1, -0.7, 1.5]}
       >
         {project.title.toUpperCase()}
       </Text>
@@ -72,7 +71,7 @@ const Project = (props) => {
         anchorX="left"
         anchorY="top"
         fontSize={0.15}
-        position={[-1.5, -0.7, 2]}
+        position={[-1.5, -0.9, 2]}
       >
         {project.description}
       </Text>
@@ -98,7 +97,7 @@ export const Projects = () => {
             y: currentProject === index ? 0.3 : -0.2,
             z: currentProject === index ? -3 : -3,
             rotateX: currentProject === index ? 0 : -Math.PI / 4,
-            rotateZ: currentProject === index ? 0 : 0.8 * Math.PI,
+            rotateZ: currentProject === index ? 0 : 0.1 * Math.PI,
           }}
         >
           <Project project={project} highlighted={index === currentProject} />
