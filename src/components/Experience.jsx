@@ -52,9 +52,10 @@ export const Experience = (props) => {
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
 
-    if (curSection > 2.5) {
+    if (curSection > 3) {
       curSection = 3;
     }
+   
 
     if (curSection !== section) {
       setSection(curSection);

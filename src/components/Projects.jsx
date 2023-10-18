@@ -9,64 +9,23 @@ import { useEffect, useRef } from "react";
 export const projects = [
   {
     title: "ecom",
-    url: "https://r3f-wawatmos-final.vercel.app/",
-    image: "projects/train.png",
+    // url: "https://r3f-wawatmos-final.vercel.app/",
+    image: "projects/ecom.png",
     description: "Recreating the Atmos Awwwards website with React Three Fiber",
   },
   {
-    title: "Portfolio Baking",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-    image: "projects/baking.jpg",
+    title: "chair",
+    // url: ,
+    image: "projects/chair.png",
     description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
   {
-    title: "3D Avatar",
-    url: "",
-    image: "projects/avatar.jpg",
-    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
-  },
-  {
-    title: "Kanagame",
-    url: "",
-    image: "projects/help.jpg",
-    description: "Use React Three Fiber to create a 3D game",
-  },
-  {
-    title: "Loader",
-    url: "",
-    image: "projects/loader.jpg",
-    description: "Create a loading screen for your r3f projects",
-  },
-  {
-    title: "ecom",
-    url: "https://r3f-wawatmos-final.vercel.app/",
-    image: "projects/train.png",
-    description: "Recreating the Atmos Awwwards website with React Three Fiber",
-  },
-  {
-    title: "Portfolio Baking",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-    image: "projects/baking.jpg",
+    title: "todo list",
+    // url: ,
+    image: "projects/todo.png",
     description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
-  {
-    title: "3D Avatar",
-    url: "",
-    image: "projects/avatar.jpg",
-    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
-  },
-  {
-    title: "Kanagame",
-    url: "",
-    image: "projects/help.jpg",
-    description: "Use React Three Fiber to create a 3D game",
-  },
-  {
-    title: "Loader",
-    url: "",
-    image: "projects/loader.jpg",
-    description: "Create a loading screen for your r3f projects",
-  },
+  
 ];
 
 const Project = (props) => {
@@ -90,30 +49,30 @@ const Project = (props) => {
         onClick={() => window.open(project.url, "_blank")}
         ref={background}
       >
-        <planeGeometry args={[2.2, 2]} />
+        <planeGeometry args={[4, 4]} />
         <meshBasicMaterial color="black" transparent opacity={0.4} />
       </mesh>
       <Image
-        scale={[2, 1.2, 1]}
+        scale={[3.8, 2.3, 2.9]}
         url={project.image}
         toneMapped={false}
         position-y={0.3}
       />
       <Text
-        maxWidth={6}
+        maxWidth={4}
         anchorX={"left"}
         anchorY={"top"}
-        fontSize={0.2}
-        position={[-1, -0.4, 0]}
+        fontSize={0.3}
+        position={[-1, -0.5, 1.5]}
       >
         {project.title.toUpperCase()}
       </Text>
       <Text
-        maxWidth={2}
+        maxWidth={3}
         anchorX="left"
         anchorY="top"
-        fontSize={0.1}
-        position={[-1, -0.6, 0]}
+        fontSize={0.15}
+        position={[-1.5, -0.7, 2]}
       >
         {project.description}
       </Text>
@@ -134,11 +93,11 @@ export const Projects = () => {
           key={"project_" + index}
           position={[index * 3, 0, -3.5]}
           animate={{
-            x: 0 + (index - currentProject) * 4,
-            y: currentProject === index ? 0.2 : -0.1,
+            x: 0 + (index - currentProject) * 8,
+            y: currentProject === index ? 0.3 : -0.2,
             z: currentProject === index ? -3 : -3,
-            rotateX: currentProject === index ? 0 : -Math.PI / 3,
-            rotateZ: currentProject === index ? 0 : -0.1 * Math.PI,
+            rotateX: currentProject === index ? 0 : -Math.PI / 4,
+            rotateZ: currentProject === index ? 0 : 0.8 * Math.PI,
           }}
         >
           <Project project={project} highlighted={index === currentProject} />

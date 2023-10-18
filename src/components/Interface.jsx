@@ -6,6 +6,7 @@ import { Typewriter } from 'react-simple-typewriter'
 import {FaCloudDownloadAlt} from "react-icons/fa";
 import {FaLinkedin,FaGithub,FaReddit} from "react-icons/fa";
 import {SiLeetcode} from "react-icons/si";
+import {AiOutlineMail  } from "react-icons/ai"
 
 const Section = (props) => {
   const { children, mobileTop } = props;
@@ -91,14 +92,14 @@ const AboutSection = (props) => {
       >
         <h1 className="text-base md:text-2xl font-extrabold leading-snug ">
          I'm a{' '}
-          <span className="text-base md:text-2xl font-extrabold text-green-600 mt-2 md:mt-0">
+          <span className="text-base md:text-2xl font-extrabold text-red-600 mt-2 md:mt-0">
          
           <Typewriter
             words={['Coder' ,'Frontend Developer', 'Backend Developer', 'MERN Stack Developer']}
             loop={Infinity}
             cursor
             cursorStyle='|'
-            cursorColor="red"
+            cursorColor="green"
             typeSpeed={70}
             deleteSpeed={50}
             delaySpeed={1000}
@@ -244,14 +245,14 @@ const ProjectsSection = () => {
     <Section>
        <div className="flex w-full h-full mt-auto gap-8 items-center justify-center">
         <button
-          className="hover:text-indigo-600 transition-colors"
+          className="hover:text-indigo-600 transition-colors mt-48"
           onClick={previousProject}
         >
           ← Previous
         </button>
-        <h2 className="text-3xl md:text-5xl font-bold">Projects</h2>
+        <h2 className="text-3xl md:text-6xl mt-48 font-bold">Projects</h2>
         <button
-          className="hover:text-indigo-600 transition-colors"
+          className="hover:text-indigo-600 mt-48 transition-colors"
           onClick={nextProject}
         >
           Next →
@@ -264,77 +265,83 @@ const ProjectsSection = () => {
 
 const ContactSection = () => {
   const [state, handleSubmit] = useForm("mbjvqqjz");
+
+  // if (state.succeeded) {
+  //   <p>Thanks for joining!</p>}
+ 
+
   return (
     <Section>
     <h2 className="text-5xl font-bold">Contact me</h2>
     <div className="mt-24 p-8 rounded-md bg-white w-96 max-w-full">
-      <form>
-        <label for="name" className="font-medium text-gray-900 block mb-1">
-          Name
-        </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-        />
-        <label
-          for="email"
-          className="font-medium text-gray-900 block mb-1 mt-8"
-        >
-          Email
-        </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-        />
-        <label
-          for="email"
-          className="font-medium text-gray-900 block mb-1 mt-8"
-        >
-          Message
-        </label>
-        <textarea
-          name="message"
-          id="message"
-          className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-        />
-         {/* <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg ml-auto font-bold text-lg mt-16 ">
-          Submit
-        </button> */}
+    <form onSubmit={handleSubmit}  >   
+          <label htmlFor="name" className="font-medium text-gray-900 block mb-1">
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+          />
+          <label
+           htmlFor ="email"
+            className="font-medium text-gray-900 block mb-1 mt-8"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+          />
+          <label
+            for="email"
+            className="font-medium text-gray-900 block mb-1 mt-8"
+          >
+            Message
+          </label>
+          <textarea
+            name="message"
+            id="message"
+            className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+          />
+          <div className="flex  items-center ml-10  md:ml-24 ">
+          <button className="  bg-indigo-600 text-white  py-2 px-4 md:py-4 md: px-8  rounded-lg font-bold text-lg mt-16 " disabled={state.submitting}>
+            Submit
+          </button>
+          </div>
+        </form>
 
-      {/* testing */}
 
-      <div className="flex justify-center gap-2">
-      <div className="flex justify-center space-x-4 mt-12">
+      <div className="flex content-center gap-5 mt-5 ">
           <a
             href="https://www.linkedin.com/in/saurabh-singh-152b40237/ " target="blank"
-            className=" text-blue-600 hover:text-blue-300 rounded-full transition mb-12 duration-300 ease-in-out">
-            <FaLinkedin className="w-5 h-5"/>
+            className=" text-blue-600  hover:text-blue-300 rounded-full transition mb-12 duration-300 ease-in-out">
+            <FaLinkedin className="w-7 h-7"/>
           </a>
           <a
             href="https://github.com/Saurabh8864" target="blank"
             className=" text-black-600 hover:text-gray-300  transition mb-12 duration-300 ease-in-out"
           >
-            <FaGithub className="w-5 h-5"/>
+            <FaGithub className="w-7 h-7"/>
           </a>
           <a
             href="https://leetcode.com/user8353g/" target="blank"
             className=" text-black-300 hover:text-black-200 rounded-full transition mb-12 duration-300 ease-in-out"
           >
-            <SiLeetcode className="w-5 h-5"/>
-          </a>
+            <SiLeetcode className="w-7 h-7"/>
+          </a> 
+
           
-          <div className="flex mb-auto ">
-          <button className="bg-indigo-600 text-white py-2 px-8 rounded-lg  font-bold text-lg ">
-          Submit
-          </button>
+          <a
+            href="https://leetcode.com/user8353g/" target="blank"
+            className=" text-black-300 hover:text-black-200 rounded-full transition mb-12 duration-300 ease-in-out"
+          >
+            < AiOutlineMail  className="w-7 h-7"/>
+          </a>  
           </div>
-          </div>
-        </div>
-      </form>
     </div>
   </Section>
   );

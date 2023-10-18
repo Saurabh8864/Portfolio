@@ -1,5 +1,6 @@
 import { useProgress } from "@react-three/drei";
 import { useEffect } from "react";
+import {PiCodesandboxLogoThin} from "react-icons/pi"
 
 export const LoadingScreen = (props) => {
   const { started, setStarted } = props;
@@ -27,9 +28,9 @@ export const LoadingScreen = (props) => {
             width: `${progress}%`,
           }}
         >
-          loading
+          <PiCodesandboxLogoThin className="h-25 w-25"/>
         </div>
-        <div className="opacity-40">loading</div>
+        <div className="opacity-40"><PiCodesandboxLogoThin/></div>
       </div>
     </div>
   );
