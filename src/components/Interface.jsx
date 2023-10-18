@@ -176,56 +176,52 @@ const skills = [
 const SkillsSection = () => {
   return (
     <Section>
-      <motion.div className="w-full" whileInView={"visible"}>
-        <h2 className="text-3xl md:text-5xl font-bold text-white">Skills</h2>
-        <div className="mt-12 space-y-4">
-          {skills.map((skill, index) => (
-            <div className="w-full md:w-64" key={index}>
-              <motion.h3
-                className="text-lg md:text-lg font-bold text-gray-100"
+    <motion.div whileInView={"visible"}>
+      <h2 className="text-5xl font-bold text-white">Skills</h2>
+      <div className=" mt-8 space-y-4">
+        {skills.map((skill, index) => (
+          <div className="w-64" key={index}>
+            <motion.h3
+              className="text-xl font-bold text-gray-100"
+              initial={{
+                opacity: 0,
+              }}
+              variants={{
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    duration: 1,
+                    delay: 1 + index * 0.2,
+                  },
+                },
+              }}
+            >
+              {skill.title}
+            </motion.h3>
+            <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
+              <motion.div
+                className="h-full bg-indigo-500 rounded-full "
+                style={{ width: `${skill.level}%` }}
                 initial={{
-                  opacity: 0,
+                  scaleX: 0,
+                  originX: 0,
                 }}
                 variants={{
                   visible: {
-                    opacity: 1,
+                    scaleX: 1,
                     transition: {
                       duration: 1,
                       delay: 1 + index * 0.2,
                     },
                   },
                 }}
-              >
-                {skill.title}
-              </motion.h3>
-              <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
-                <motion.div
-                  className="h-full bg-indigo-500 rounded-full "
-                  style={{ width: `${skill.level}%` }}
-                  initial={{
-                    scaleX: 0,
-                    originX: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      scaleX: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 1 + index * 0.2,
-                      },
-                    },
-                  }}
-                />
-              </div>
+              />
             </div>
-          ))}
-        </div>
-        <div>
-         
-          
-        </div>
-      </motion.div>
-    </Section>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  </Section>
   );
 };
 
@@ -243,16 +239,16 @@ const ProjectsSection = () => {
   return (
 
     <Section>
-       <div className="flex w-full h-full mt-auto gap-8 items-center justify-center">
+       <div className="flex w-full h-full mt-auto gap-8 items-center justify-center ">
         <button
-          className="hover:text-indigo-600 transition-colors mt-48"
+          className="hover:text-indigo-600 transition-colors mt-72"
           onClick={previousProject}
         >
           ← Previous
         </button>
-        <h2 className="text-3xl md:text-6xl mt-48 font-bold">Projects</h2>
+        <h2 className="text-3xl md:text-6xl mt-48 font-bold mt-72">Projects</h2>
         <button
-          className="hover:text-indigo-600 mt-48 transition-colors"
+          className="hover:text-indigo-600 mt-48 transition-colors mt-72"
           onClick={nextProject}
         >
           Next →
@@ -265,52 +261,49 @@ const ProjectsSection = () => {
 
 const ContactSection = () => {
   const [state, handleSubmit] = useForm("mbjvqqjz");
-
-  // if (state.succeeded) {
-  //   <p>Thanks for joining!</p>}
- 
-
   return (
     <Section>
     <h2 className="text-5xl font-bold">Contact me</h2>
-    <div className="mt-24 p-8 rounded-md bg-white w-96 max-w-full">
-    <form onSubmit={handleSubmit}  >   
-          <label htmlFor="name" className="font-medium text-gray-900 block mb-1">
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-          />
-          <label
-           htmlFor ="email"
-            className="font-medium text-gray-900 block mb-1 mt-8"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-          />
-          <label
-            for="email"
-            className="font-medium text-gray-900 block mb-1 mt-8"
-          >
-            Message
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-          />
-          <button className="  bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold text-lg mt-6  " disabled={state.submitting}>
-            Submit
-          </button>
-        </form>
+    <div className="mt-24 p-8 rounded-md bg-white w-96 max-w-full"> 
+    {  (state.succeeded)? (
+     <p className="text-gray-900 text-center">Thanks for joining!</p>):(    <form onSubmit={handleSubmit}  > 
+      <label htmlFor="name" className="font-medium text-gray-900 block mb-1">
+        Name
+      </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+      />
+      <label
+       htmlFor ="email"
+        className="font-medium text-gray-900 block mb-1 mt-8"
+      >
+        Email
+      </label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+      />
+      <label
+        for="email"
+        className="font-medium text-gray-900 block mb-1 mt-8"
+      >
+        Message
+      </label>
+      <textarea
+        name="message"
+        id="message"
+        className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+      />
+      <button className="  bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold text-lg mt-6  " disabled={state.submitting}>
+        Submit
+      </button>
+    </form>)}
+    
     </div> 
   </Section>
   

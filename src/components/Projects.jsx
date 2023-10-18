@@ -87,13 +87,14 @@ export const Projects = () => {
   const [currentProject] = useAtom(currentProjectAtom);
 
   return (
+   
     <group position-y={-viewport.height * 2.1 + 1}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}
           position={[index * 3, 0, -3.5]}
           animate={{
-            x: 0 + (index - currentProject) * 8,
+            x: -1 + (index - currentProject) * 8,
             y: currentProject === index ? 0.3 : -0.2,
             z: currentProject === index ? -3 : -3,
             rotateX: currentProject === index ? 0 : -Math.PI / 4,
