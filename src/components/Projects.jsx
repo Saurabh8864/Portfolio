@@ -15,7 +15,7 @@ export const projects = [
   },
   {
     title: "Gostore",
-    //  url: "https://github.com/Saurabh8864/todo-mern",
+     url: "https://github.com/Saurabh8864/Chair_configurator1",
     image: "projects/chair.png",
     description: "it is a Chair configurator made with # React-three-fiber",
   },
