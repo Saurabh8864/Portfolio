@@ -266,7 +266,7 @@ const ContactSection = () => {
     <h2 className="text-5xl font-bold">Contact me</h2>
     <div className="mt-24 p-8 rounded-md bg-white w-96 max-w-full"> 
     {  (state.succeeded)? (
-     <p className="text-gray-900 text-center">Thanks for joining!</p>):(    <form onSubmit={handleSubmit}  > 
+     <p className="text-gray-900 text-center">Message Sent!</p>):(  <form onSubmit={handleSubmit}  > 
       <label htmlFor="name" className="font-medium text-gray-900 block mb-1">
         Name
       </label>

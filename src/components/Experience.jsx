@@ -95,14 +95,14 @@ export const Experience = (props) => {
           // check it 
           1: {
             y: -viewport.height +0.1,
-            x: isMobile ? 0.4 : 0,
+            x: isMobile ? 0.8 : 0,
             z: 4.9,
             rotateX: 0,
             rotateY: isMobile ? -Math.PI / 28 : 0,
             rotateZ: 0,
-            scaleX: isMobile ? 1.6 : 1,
-            scaleY: isMobile ? 1.6 : 1,
-            scaleZ: isMobile ? 1.6 : 1,
+            scaleX: isMobile ? 1.4 : 1,
+            scaleY: isMobile ? 1.4 : 1,
+            scaleZ: isMobile ? 1.4 : 1,
           },
           2: {
             x: isMobile ? -1.1 : -2,
