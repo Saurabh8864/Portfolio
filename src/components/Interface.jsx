@@ -52,7 +52,9 @@ export const Interface = (props) => {
 
 const AboutSection = (props) => {
   const { setSection } = props;
-  const pdfURL ="https://portfolio-pied-mu-47.vercel.app/Resume1.pdf";
+  const pdfURL ="./resume.pdf";
+
+  // "https://portfolio-pied-mu-47.vercel.app/Resume1.pdf";
 
   const downloadResume=(url)=>{
     
